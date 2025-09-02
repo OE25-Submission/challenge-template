@@ -1,8 +1,15 @@
 # berg-challenge-template
 
-This is a template repository for creating a challenge that can be deployed using the berg ctf platform.
+Please create your challenge files in this repository:
+
+> [!NOTE]
+> **Challenge draft**
+>
+> Please create your draft in [`DRAFT.md`](`./DRAFT.md`)
 
 ## Structure
+
+You'll need the following files for submitting your challenge:
 
 ### challenge-handout
 
@@ -28,3 +35,6 @@ This file is a kubernetes custom resource definition file of a `Challenge` as it
 in the berg platform. It contains all the metadata needed for a challenge, such as expected
 difficulty level, applicable categories, the correct flag and how to run the containers and
 what ports to expose.
+
+## Help, i'm stuck
+If you need any help with the repository structure or the `challenge.yaml`, feel free to open a ticket on the [Discord](https://discord.gg/n7SHk8guyC).

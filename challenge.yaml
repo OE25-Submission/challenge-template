@@ -1,27 +1,27 @@
+---
 apiVersion: berg.norelect.ch/v1
 kind: Challenge
 metadata:
-  name: CHALLENGE_NAME_HERE
+  name: CHALLENGE_NAME_HERE  # no underscores, must be RFC1123 compliant kubernetes resource name
   namespace: berg
 spec:
   categories:
-    - crypto
-    - whatever
-  difficulty: baby # Must be one of baby/easy/medium/hard/leet
-  author: YOUR_USERNAME_HERE
+    - crypto  # put your category here, web/pwn/rev/crypto/stego/forensics/misc
+  difficulty: easy  # must be one of easy/medium/hard/leet
+  author: YOUR_USERNAME_HERE  # use the same username you'll later use for the challenge platform
   # Change to true if your challenge requires a reverse shell or other form of data exfiltration
   allowOutboundTraffic: false
-  flag: flag{YOUR_FLAG_HERE}
-  flagFormat: flag{...}
+  flag: openECSC{YOUR_FLAG_HERE}
+  flagFormat: openECSC{...}
   description: |
     Please add a challenge description here to add some context.<br />
     This description can be multiline and supports <u>html</u> tags.
-  containers:
-    - hostname: HOSTNAME_HERE
-      image: ghcr.io/GITHUB_OWNER/GITHUB_REPOSITORY/CHALLENGE_NAME_HERE:latest
+  containers:  # you can have multiple containers
+    - hostname: HOSTNAME_HERE  # DNS name that other containers in the same challenge can reach
+      image: ghcr.io/GITHUB_OWNER/GITHUB_REPOSITORY/CHALLENGE_NAME_HERE:latest  # we'll take care of this
       environment:
         WHATEVER: VALUE
-      resourceLimits:
+      resourceLimits:  # make sure your application doesn't use more than those limits, otherwise increase them
         cpu: "0.2"
         memory: "100Mi"
       ports:
@@ -34,6 +34,6 @@ spec:
           # - publicPort: Expose this service on a random high port
           # - internalPort: Only expose this port for other containers, not to the public
           type: publicHttpRoute
-  attachments:
+  attachments:  # we'll take care of this
     - fileName: CHALLENGE_NAME_HERE.tar.gz
       downloadUrl: /handouts/CHALLENGE_NAME_HERE.tar.gz
