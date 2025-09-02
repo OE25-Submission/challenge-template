@@ -5,7 +5,7 @@ Please create your challenge files in this repository:
 > [!NOTE]
 > **Challenge draft**
 >
-> Please create your draft in [`DRAFT.md`](`./DRAFT.md`)
+> Please create your draft in [`DRAFT.md`](./DRAFT.md)
 
 ## Structure
 
